@@ -48,9 +48,17 @@ function Information({ hotel, detailsPage }: IProps) {
               >
                 Edit Description
               </strong>
-              {editDescription ? <Edit editDescription={editDescription} setEditDescription={setEditDescription}/> : null}
+              {editDescription ? (
+                <Edit
+                  editDescription={editDescription}
+                  setEditDescription={setEditDescription}
+                  id={hotel.id}
+                />
+              ) : null}
             </p>
-            <button onClick={() => deleteHotel(hotel.id, navigate)}>Delete Hotel</button>
+            <button onClick={() => deleteHotel(hotel.id, navigate)}>
+              Delete Hotel
+            </button>
           </>
         ) : (
           <Link to={`/hotels/${hotel.id}`}>
