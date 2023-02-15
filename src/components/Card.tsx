@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { DocumentData, QuerySnapshot, onSnapshot } from "firebase/firestore";
-import { hostelsCollection } from "../lib/controller";
+import { hotelsCollection } from "../lib/controller";
 import { NewHotelType } from "../types/hotel";
 import Information from "./Information";
 function Card() {
   const [hotels,setHotels] = useState<NewHotelType[]>([]);
   useEffect(() => {
-    onSnapshot(hostelsCollection, (snapshot: QuerySnapshot<DocumentData>) => {
+    onSnapshot(hotelsCollection, (snapshot: QuerySnapshot<DocumentData>) => {
       setHotels(
         snapshot.docs.map((doc) => {
           return {

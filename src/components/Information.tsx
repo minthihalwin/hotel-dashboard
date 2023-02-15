@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { NewHotelType } from "../types/hotel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Edit from "./Edit";
+import { deleteHotel } from "../lib/controller";
 
 interface IProps {
   hotel: NewHotelType;
@@ -12,6 +13,7 @@ function Information({ hotel, detailsPage }: IProps) {
   console.log(hotel, "hotel");
 
   const [editDescription, setEditDescription] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="hotel-preview">
@@ -48,7 +50,7 @@ function Information({ hotel, detailsPage }: IProps) {
               </strong>
               {editDescription ? <Edit editDescription={editDescription} setEditDescription={setEditDescription}/> : null}
             </p>
-            <button>Delete Hotel</button>
+            <button onClick={() => deleteHotel(hotel.id, navigate)}>Delete Hotel</button>
           </>
         ) : (
           <Link to={`/hotels/${hotel.id}`}>
