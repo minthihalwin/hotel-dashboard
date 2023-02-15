@@ -30,7 +30,7 @@ function Create() {
       totalPrice,
       perNight
     });
-    console.log("successfully added a new hotel");
+
     navigate('/');
   };
 

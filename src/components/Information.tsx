@@ -10,7 +10,7 @@ interface IProps {
 }
 
 function Information({ hotel, detailsPage }: IProps) {
-  console.log(hotel, "hotel");
+
 
   const [editDescription, setEditDescription] = useState(false);
   const navigate = useNavigate();
